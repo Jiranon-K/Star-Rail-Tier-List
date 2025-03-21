@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { User, UsersRound, ChevronLeft, ChevronRight , SquareUser} from "lucide-react";
+import { User, UsersRound, ChevronLeft, ChevronRight, SquareUser } from "lucide-react";
 
 const carouselData = [
   {
@@ -10,7 +10,7 @@ const carouselData = [
     image: "/honkai-banner.png",
     title: "HONKAI STAR RAIL",
     description:
-      "เดินทางผ่านจักรวาลอันไร้ขอบเขต ค้นพบเรื่องราวและความลี้ลับที่รอคอยการค้นพบ",
+      "เดินทางผ่านจักรวาลอันไร้ขอบเขตค้นพบเรื่องราวและความลี้ลับที่รอคอยการค้นพบ",
   },
   {
     id: 2,
@@ -28,6 +28,7 @@ const carouselData = [
 
 const BannerCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const totalSlides = carouselData.length;
 
   const nextSlide = () => {
@@ -38,13 +39,29 @@ const BannerCarousel = () => {
     setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
   };
 
+  
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
+    setIsMounted(true);
   }, []);
+
+  
+  useEffect(() => {
+    if (isMounted) {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 5000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isMounted]);
+
+  
+  if (!isMounted) {
+    return (
+      <div className="relative w-full h-[100vh] overflow-hidden bg-black">
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-[100vh] overflow-hidden">
@@ -64,6 +81,7 @@ const BannerCarousel = () => {
               alt={`Banner ${index + 1}`}
               fill
               className="object-cover filter brightness-[0.5] blur-sm scale-105"
+              priority={index === 0}
             />
           </div>
           <div className="absolute inset-0 bg-blue-900/30"></div>
@@ -88,7 +106,6 @@ const BannerCarousel = () => {
           </div>
         </div>
       ))}
-    
 
       {/* Carousel navigation buttons */}
       <button

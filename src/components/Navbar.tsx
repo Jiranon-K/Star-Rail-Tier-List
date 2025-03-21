@@ -1,15 +1,8 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { 
-  Home, 
-  User, 
-  Star, 
-  Rocket, 
-  Search, 
-  Menu, 
-  X 
-} from 'lucide-react';
+import React, { useState } from "react";
+import Link from "next/link"; // Import Link จาก next/link
+import { Home, User, Star, Rocket, Search, Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,30 +12,39 @@ const Navbar: React.FC = () => {
   };
 
   const NavItems = [
-    { icon: <Home size={20} />, label: 'หน้าหลัก' },
-    { icon: <User size={20} />, label: 'ตัวละคร' },
-    { icon: <Star size={20} />, label: 'Tier List' },
-    { icon: <Rocket size={20} />, label: 'Light Cone' }
+    { icon: <Home size={20} />, label: "หน้าหลัก", href: "/" },
+    { icon: <User size={20} />, label: "ตัวละคร", href: "/characters" }, 
+    { icon: <Star size={20} />, label: "Tier List", href: "#" },
+    { icon: <Rocket size={20} />, label: "Light Cone", href: "#" },
   ];
 
   return (
     <nav className="fixed top-4 inset-x-0 z-50 w-[95%] max-w-6xl mx-auto">
       <div className="navbar bg-black bg-opacity-40 backdrop-blur-md shadow-lg rounded-lg px-4 py-2 relative border border-gray-800">
-        {/* Logo */}  
+        {/* Logo */}
         <div className="navbar-start">
-          <a className="btn btn-ghost text-xl flex items-center gap-2 text-white">
+          <Link
+            href="/"
+            className="btn btn-ghost text-xl flex items-center gap-2 text-white"
+          >
             <Rocket size={24} className="text-blue-400" />
-            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">HONKAI STAR RAIL</span>
-          </a>
+            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              HONKAI STAR RAIL
+            </span>
+          </Link>
         </div>
 
         {/* Desktop Menu */}
         <div className="navbar-center hidden md:flex space-x-2">
           {NavItems.map((item, index) => (
-            <button key={index} className="btn btn-ghost flex items-center gap-2 text-gray-200 hover:text-white hover:bg-white/10">
+            <Link
+              key={index}
+              href={item.href}
+              className="btn btn-ghost flex items-center gap-2 text-gray-200 hover:text-white hover:bg-white/10"
+            >
               {item.icon}
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
 
@@ -51,14 +53,17 @@ const Navbar: React.FC = () => {
           <div className="relative hidden md:block">
             <input
               type="text"
-              placeholder="Search characters, items..."
+              placeholder="Search characters, light ..."
               className="input bg-black/30 border-gray-700 w-64 rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
             />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Search
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={20}
+            />
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden btn btn-ghost text-white"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
@@ -73,15 +78,16 @@ const Navbar: React.FC = () => {
         <div className="md:hidden absolute top-full left-0 right-0 bg-black bg-opacity-40 backdrop-blur-md rounded-b-lg shadow-md animate-slide-down border border-gray-800 border-t-0">
           <div className="flex flex-col items-center py-4 space-y-2">
             {NavItems.map((item, index) => (
-              <button 
-                key={index} 
+              <Link
+                key={index}
+                href={item.href}
                 className="btn btn-ghost w-full flex items-center justify-start px-6 gap-3 text-gray-200 hover:text-white hover:bg-white/10"
               >
                 {item.icon}
                 {item.label}
-              </button>
+              </Link>
             ))}
-            
+
             {/* Mobile Search */}
             <div className="relative w-full px-4 mt-2">
               <input
@@ -89,7 +95,10 @@ const Navbar: React.FC = () => {
                 placeholder="Search characters, items..."
                 className="input bg-black/30 border-gray-700 w-full rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
               />
-              <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Search
+                className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
             </div>
           </div>
         </div>
