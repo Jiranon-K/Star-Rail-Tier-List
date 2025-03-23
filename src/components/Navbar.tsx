@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link"; 
-import { Home, User, Star, Rocket, Search, Menu, X } from "lucide-react";
+import { Home, User, Star, Rocket,  Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,20 +48,9 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile Menu Toggle */}
+       
         <div className="navbar-end flex items-center space-x-2">
-          <div className="relative hidden md:block">
-            <input
-              type="text"
-              placeholder="Search characters, light ..."
-              className="input bg-black/30 border-gray-700 w-64 rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-            />
-            <Search
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-              size={20}
-            />
-          </div>
-
+          
           {/* Mobile Menu Button */}
           <button
             className="md:hidden btn btn-ghost text-white"
@@ -88,18 +77,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
 
-            {/* Mobile Search */}
-            <div className="relative w-full px-4 mt-2">
-              <input
-                type="text"
-                placeholder="Search characters, items..."
-                className="input bg-black/30 border-gray-700 w-full rounded-full pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
-              />
-              <Search
-                className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
-              />
-            </div>
+           
           </div>
         </div>
       )}
