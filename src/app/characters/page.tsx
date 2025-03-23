@@ -4,9 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import { characters, getAllElements, getAllPaths, type Character, type CharacterElement, type CharacterPath } from '@/data/characters';
 import { Search } from 'lucide-react';
+import Image from 'next/image';
 
 export default function CharactersPage() {
-  // State สำหรับเก็บผลลัพธ์การค้นหาและตัวกรอง
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>(characters);
   const [selectedRarity, setSelectedRarity] = useState<number | null>(null);
@@ -15,32 +16,32 @@ export default function CharactersPage() {
   const [showPathDropdown, setShowPathDropdown] = useState(false);
   const [showElementDropdown, setShowElementDropdown] = useState(false);
   
-  // ดึงข้อมูลเส้นทางและธาตุที่มีทั้งหมด
+  
   const paths = getAllPaths();
   const elements = getAllElements();
 
-  // ฟังก์ชันสำหรับการกรองข้อมูล
+  
   useEffect(() => {
     let result = characters;
     
-    // กรองตามคำค้นหา
+    
     if (searchQuery) {
       result = result.filter(character => 
         character.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
     
-    // กรองตามความหายาก
+    
     if (selectedRarity) {
       result = result.filter(character => character.rarity === selectedRarity);
     }
     
-    // กรองตามเส้นทาง
+   
     if (selectedPath) {
       result = result.filter(character => character.path === selectedPath);
     }
     
-    // กรองตามธาตุ
+    
     if (selectedElement) {
       result = result.filter(character => character.element === selectedElement);
     }
@@ -48,7 +49,7 @@ export default function CharactersPage() {
     setFilteredCharacters(result);
   }, [searchQuery, selectedRarity, selectedPath, selectedElement]);
 
-  // ฟังก์ชันสำหรับล้างตัวกรอง
+  
   const clearFilters = () => {
     setSearchQuery('');
     setSelectedRarity(null);
@@ -56,7 +57,7 @@ export default function CharactersPage() {
     setSelectedElement(null);
   };
 
-  // ปิด dropdown เมื่อคลิกนอกพื้นที่
+  
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (showPathDropdown && !(event.target as Element).closest('.path-dropdown-container')) {
@@ -87,7 +88,7 @@ export default function CharactersPage() {
     }
   };
 
-  // ฟังก์ชันสำหรับเลือกสีตัวอักษรตามธาตุ
+  
   const getElementTextColor = (element: CharacterElement) => {
     switch (element) {
       case 'กายภาพ': return 'text-white';
@@ -101,7 +102,7 @@ export default function CharactersPage() {
     }
   };
 
-  // ฟังก์ชันสำหรับเลือกสีเรืองแสงตามธาตุ
+  
   const getElementTextShadow = (element: CharacterElement) => {
     switch (element) {
       case 'กายภาพ': return 'text-shadow-physical';
@@ -115,7 +116,7 @@ export default function CharactersPage() {
     }
   };
 
-  // ฟังก์ชันสำหรับเลือก glow class ตามธาตุ
+  
   const getElementGlow = (element: CharacterElement) => {
     switch (element) {
       case 'กายภาพ': return 'glow-physical';
@@ -167,9 +168,8 @@ export default function CharactersPage() {
         </div>
       </div>
       
-      {/* Character Section */}
-      <section className="container mx-auto px-4 py-8 -mt-20 relative z-20">
-        {/* Filter Section */}
+      {/* Filter Section */}
+      <div className="container mx-auto px-4 py-8 -mt-20 relative z-[100]">
         <div className="backdrop-blur-md bg-black/40 rounded-2xl p-6 border border-white/10 shadow-lg mb-12 transition-all duration-300">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Search */}
@@ -209,8 +209,8 @@ export default function CharactersPage() {
                 </button>
               </div>
               
-              {/* Path Filter - แก้ไขตำแหน่งและค่า z-index */}
-              <div className="relative path-dropdown-container">
+              {/* Path Filter  */}
+              <div className="relative path-dropdown-container z-[150]">
                 <button 
                   onClick={() => {
                     setShowPathDropdown(!showPathDropdown);
@@ -225,7 +225,7 @@ export default function CharactersPage() {
                 </button>
                 
                 {showPathDropdown && (
-                  <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-xl ring-1 ring-black ring-opacity-5 z-[100] border border-purple-500/30">
+                  <div className="absolute bottom-full mb-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-xl ring-1 ring-black ring-opacity-5 z-[200] border border-purple-500/30">
                     <div className="py-1">
                       <button
                         onClick={() => { setSelectedPath(null); setShowPathDropdown(false); }}
@@ -247,8 +247,8 @@ export default function CharactersPage() {
                 )}
               </div>
               
-              {/* Element Filter - แก้ไขตำแหน่งและค่า z-index */}
-              <div className="relative element-dropdown-container">
+              {/* Element Filter  */}
+              <div className="relative element-dropdown-container z-[150]">
                 <button 
                   onClick={() => {
                     setShowElementDropdown(!showElementDropdown);
@@ -263,7 +263,7 @@ export default function CharactersPage() {
                 </button>
                 
                 {showElementDropdown && (
-                  <div className="absolute mt-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-xl ring-1 ring-black ring-opacity-5 z-[100] border border-cyan-500/30">
+                  <div className="absolute bottom-full mb-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-xl ring-1 ring-black ring-opacity-5 z-[200] border border-cyan-500/30">
                     <div className="py-1">
                       <button
                         onClick={() => { setSelectedElement(null); setShowElementDropdown(false); }}
@@ -295,8 +295,10 @@ export default function CharactersPage() {
             </div>
           </div>
         </div>
-        
-        {/* Results Info */}
+      </div>
+      
+      {/* Character Section */}
+      <section className="container mx-auto px-4 py-8 relative z-[90]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-xl text-blue-300 font-medium px-4 py-2 backdrop-blur-sm bg-black/20 rounded-full border border-blue-500/10">
             พบ {filteredCharacters.length} ตัวละคร
@@ -320,12 +322,14 @@ export default function CharactersPage() {
                 ))}
               </div>
               
-              {/* Character Image with Gradient Overlay */}
+              {/* Character Image  */}
               <div className="relative h-60 w-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
-                <img
+                <Image
                   src={character.imageUrl} 
                   alt={character.name}
+                  width={500}
+                  height={500}
                   className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
@@ -336,7 +340,7 @@ export default function CharactersPage() {
                   <h3 className={`${getElementTextColor(character.element)} ${getElementTextShadow(character.element)} font-bold text-center text-lg truncate`}>{character.name}</h3>
                 </div>
                 
-                {/* Element & Path (Visible on Hover) */}
+                
                 <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 -top-10 inset-x-0 flex justify-center gap-2 text-xs">
                   <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20">
                     {character.element}
