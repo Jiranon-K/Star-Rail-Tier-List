@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link"; // Import Link จาก next/link
+import Link from "next/link"; 
 import { Home, User, Star, Rocket, Search, Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed top-4 inset-x-0 z-50 w-[95%] max-w-6xl mx-auto">
+    <nav className="fixed top-4 inset-x-0 z-999 w-[95%] max-w-6xl mx-auto">
       <div className="navbar bg-black bg-opacity-40 backdrop-blur-md shadow-lg rounded-lg px-4 py-2 relative border border-gray-800">
         {/* Logo */}
         <div className="navbar-start">
