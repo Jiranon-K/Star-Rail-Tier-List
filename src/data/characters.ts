@@ -53,10 +53,35 @@ export const characters: Character[] = [
   { id: 40, name: "Moze", rarity: 4, path: "ล่าสังหาร", element: "สายฟ้า", imageUrl: "/character/Character_Moze_Splash_Art.webp" },
   { id: 41, name: "Mydei", rarity: 4, path: "ทำลายล้าง", element: "จินตภาพ", imageUrl: "/character/Character_Mydei_Splash_Art.webp" },
   { id: 27, name: "Natasha", rarity: 4, path: "เฟื่องฟู", element: "กายภาพ", imageUrl: "/character/Character_Natasha_Splash_Art.webp" },
-  { id: 28, name: "Pela", rarity: 4, path: "ลบล้าง", element: "น้ำแข็ง", imageUrl: "/character/Character_Pela_Splash_Art.webp" }
+  { id: 28, name: "Pela", rarity: 4, path: "ลบล้าง", element: "น้ำแข็ง", imageUrl: "/character/Character_Pela_Splash_Art.webp" },
+  { id: 42, name: "Qingque", rarity: 4, path: "ปัญญา", element: "ควอนตัม", imageUrl: "/character/Character_Qingque_Splash_Art.webp" },
+  { id: 43, name: "Rappa", rarity: 5, path: "ปัญญา", element: "จินตภาพ", imageUrl: "/character/Character_Rappa_Splash_Art.webp" },
+  { id: 44, name: "Robin", rarity: 4, path: "ประสาน", element: "กายภาพ", imageUrl: "/character/Character_Robin_Splash_Art.webp" },
+  { id: 45, name: "Ruan Mei", rarity: 5, path: "ประสาน", element: "น้ำแข็ง", imageUrl: "/character/Character_Ruan_Mei_Splash_Art.webp" },
+  { id: 46, name: "Sampo", rarity: 4, path: "ลบล้าง", element: "ลม", imageUrl: "/character/Character_Sampo_Splash_Art.webp" },
+  { id: 47, name: "Seele", rarity: 5, path: "ล่าสังหาร", element: "ควอนตัม", imageUrl: "/character/Character_Seele_Splash_Art.webp" },
+  { id: 48, name: "Serval", rarity: 4, path: "ปัญญา", element: "สายฟ้า", imageUrl: "/character/Character_Serval_Splash_Art.webp" },
+  { id: 49, name: "Silver Wolf", rarity: 5, path: "ลบล้าง", element: "ควอนตัม", imageUrl: "/character/Character_Silver_Wolf_Splash_Art.webp" },
+  { id: 50, name: "Sparkle", rarity: 5, path: "ประสาน", element: "ควอนตัม", imageUrl: "/character/Character_Sparkle_Splash_Art.webp" },
+  { id: 51, name: "Sunday", rarity: 4, path: "ประสาน", element: "จินตภาพ", imageUrl: "/character/Character_Sunday_Splash_Art.webp" },
+  { id: 52, name: "Sushang", rarity: 4, path: "ล่าสังหาร", element: "กายภาพ", imageUrl: "/character/Character_Sushang_Splash_Art.webp" },
+  { id: 53, name: "The Herta", rarity: 5, path: "ปัญญา", element: "น้ำแข็ง", imageUrl: "/character/Character_The_Herta_Splash_Art.webp" },
+  { id: 54, name: "Tingyun", rarity: 4, path: "ประสาน", element: "สายฟ้า", imageUrl: "/character/Character_Tingyun_Splash_Art.webp" },
+  { id: 55, name: "Topaz & Numby", rarity: 5, path: "ล่าสังหาร", element: "ไฟ", imageUrl: "/character/Character_Topaz_and_Numby_Splash_Art.webp" },
+  { id: 56, name: "Trailblazer", rarity: 5, path: "ทำลายล้าง", element: "กายภาพ", imageUrl: "/character/Character_Trailblazer_29_Destruction_Splash_Art.webp" },
+  { id: 57, name: "Trailblazer", rarity: 5, path: "อนุรักษ์", element: "ไฟ", imageUrl: "/character/Character_Trailblazer_29_Destruction_Splash_Art.webp" },
+  { id: 58, name: "Trailblazer", rarity: 5, path: "ประสาน", element: "จินตภาพ", imageUrl: "/character/Character_Trailblazer_29_Destruction_Splash_Art.webp" },
+  { id: 59, name: "Trailblazer", rarity: 5, path: "ความทรงจำ", element: "น้ำแข็ง", imageUrl: "/character/Character_Trailblazer_29_Destruction_Splash_Art.webp" },
+  { id: 60, name: "Tribbie", rarity: 4, path: "ประสาน", element: "ควอนตัม", imageUrl: "/character/Character_Tribbie_Splash_Art.webp" },
+  { id: 61, name: "Welt", rarity: 5, path: "ลบล้าง", element: "จินตภาพ", imageUrl: "/character/Character_Welt_Splash_Art.webp" },
+  { id: 62, name: "Xueyi", rarity: 5, path: "ทำลายล้าง", element: "ควอนตัม", imageUrl: "/character/Character_Xueyi_Splash_Art.webp" },
+  { id: 63, name: "Yanqing", rarity: 5, path: "ล่าสังหาร", element: "น้ำแข็ง", imageUrl: "/character/Character_Yanqing_Splash_Art.webp" },
+  { id: 64, name: "Yukong", rarity: 4, path: "ประสาน", element: "จินตภาพ", imageUrl: "/character/Character_Yukong_Splash_Art.webp" },
+  { id: 65, name: "Yunli", rarity: 5, path: "ทำลายล้าง", element: "กายภาพ", imageUrl: "/character/Character_Yunli_Splash_Art.webp" },
+  { id: 66, name: "Feixiao", rarity: 5, path: "ล่าสังหาร", element: "ลม", imageUrl: "/character/Character_Feixiao_Splash_Art.webp" }
 ];
 
-// กรองตัวละคร
+
 export const getCharactersByRarity = (rarity: 4 | 5): Character[] => {
   return characters.filter(char => char.rarity === rarity);
 };
@@ -69,7 +94,7 @@ export const getCharactersByElement = (element: CharacterElement): Character[] =
   return characters.filter(char => char.element === element);
 };
 
-// ดึงค่าที่เป็นไปได้ทั้งหมด
+
 export const getAllPaths = (): CharacterPath[] => {
   return Array.from(new Set(characters.map(char => char.path)));
 };
