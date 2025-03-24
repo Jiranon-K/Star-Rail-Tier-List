@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link"; 
-import { Home, User, Star, Rocket,  Menu, X } from "lucide-react";
+import { Home, User, Star, Rocket, Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   const NavItems = [
     { icon: <Home size={20} />, label: "หน้าหลัก", href: "/" },
     { icon: <User size={20} />, label: "ตัวละคร", href: "/characters" }, 
-    { icon: <Star size={20} />, label: "Tier List", href: "#" },
+    { icon: <Star size={20} />, label: "Tier List", href: "/tier-list" },
     { icon: <Rocket size={20} />, label: "Light Cone", href: "#" },
   ];
 
@@ -76,8 +76,6 @@ const Navbar: React.FC = () => {
                 {item.label}
               </Link>
             ))}
-
-           
           </div>
         </div>
       )}
