@@ -69,139 +69,256 @@ const createPredefinedTierLists = (): Record<GameMode, Record<TierType, Characte
   // Memory of Chaos Tier List
   const chaosMode: Record<TierType, Character[]> = {
     'SS': [
-      findCharByName('Blade')!, 
-      findCharByName('Kafka')!,
-      findCharByName('Topaz')!,
-      findCharByName('Jingliu')!
+      findCharByName('Aglaea')!, 
+      findCharByName('Mydei')!,
+      findCharByName('The Herta')!,
+      findCharByName('Tribbie')!,
+      findCharByName('Robin')!,
+      findCharByName('Ruan Mei')!,
+      findCharByName('Sunday')!,
+      findCharByName('Aventurine')!,
+      findCharByName('Lingsha')!
     ].filter(Boolean) as Character[],
     
     'S': [
-      findCharByName('Dan Heng - จ้าวยลจันทรา')!,
-      findCharByName('Silver Wolf')!,
-      findCharByName('Fu Xuan')!,
-      findCharByName('Seele')!,
-      findCharByName('Jing Yuan')!
+      findCharByName('Acheron')!,
+      findCharByName('Feixiao')!,
+      findCharByName('Firefly')!,
+      findCharByName('Rappa')!,
+      findCharByName('Jade')!,
+      findCharByName('March 7th The Hunt')!,
+      findCharByName('Topaz & Numby')!,
+      findCharByName('Jiaoqiu')!,
+      findCharByName('Fugue')!,
+      findCharByName('Trailblazer • Remembrance')!,
+      findCharByName('Gallagher')!,
+      findCharByName('Huohuo')!
     ].filter(Boolean) as Character[],
     
     'A': [
-      findCharByName('Himeko')!,
-      findCharByName('Clara')!,
-      findCharByName('Bronya')!,
-      findCharByName('Gepard')!,
+      findCharByName('Boothill')!,
+      findCharByName('Jing Yuan')!,
+      findCharByName('Yunli')!,
+      findCharByName('Argenti')!,
+      findCharByName('Black Swan')!, 
+      findCharByName('Moze')!,
+      findCharByName('Serval')!,
+      findCharByName('Pela')!,
       findCharByName('Sparkle')!,
-      findCharByName('Tingyun')!
+      findCharByName('Trailblazer • Harmony')!,
+      findCharByName('Fu Xuan')!,
+      findCharByName('Luocha')!
     ].filter(Boolean) as Character[],
     
     'B': [
-      findCharByName('Welt')!,
-      findCharByName('Bailu')!,
+      findCharByName('Dr. Ratio')!,
+      findCharByName('Himeko')!,
       findCharByName('Yanqing')!,
-      findCharByName('Hook')!,
-      findCharByName('Natasha')!
+      findCharByName('Dan Heng - จ้าวยลจันทรา')!,
+      findCharByName('Kafka')!,
+      findCharByName('Herta')!,
+      findCharByName('Bronya')!,
+      findCharByName('Silver Wolf')!,
+      findCharByName('Tingyun')!
     ].filter(Boolean) as Character[],
     
     'C': [
-      findCharByName('Arlan')!,
-      findCharByName('Qingque')!,
-      findCharByName('Pela')!,
-      findCharByName('Sampo')!
+      findCharByName('Clara')!,
+      findCharByName('Jingliu')!,
+      findCharByName('Bailu')!,
+      findCharByName('Gepard')!
     ].filter(Boolean) as Character[],
     
     'D': [
-      findCharByName('Herta')!,
+      findCharByName('Qingque')!,
+      findCharByName('Blade')!,
+      findCharByName('Seele')!,
+      findCharByName('Sampo')!,
       findCharByName('Asta')!,
-      findCharByName('Serval')!
+      findCharByName('Guinaifen')!,
+      findCharByName('Lynx')!,
+      findCharByName('Luka')!,
+      findCharByName('Xueyi')!,
+      findCharByName('Welt')!,
+      findCharByName('Hanya')!
     ].filter(Boolean) as Character[]
   };
   
   // Pure Fiction Tier List 
   const fictionMode: Record<TierType, Character[]> = {
     'SS': [
-      findCharByName('Luocha')!,
-      findCharByName('Fu Xuan')!,
-      findCharByName('Sparkle')!,
-      findCharByName('Tingyun')!
-    ].filter(Boolean) as Character[],
-    
-    'S': [
-      findCharByName('Bronya')!,
-      findCharByName('Bailu')!,
-      findCharByName('Silver Wolf')!,
-      findCharByName('Ruan Mei')!,
-      findCharByName('Jade')!
-    ].filter(Boolean) as Character[],
-    
-    'A': [
-      findCharByName('Gepard')!,
-      findCharByName('Yukong')!,
-      findCharByName('Lynx')!,
-      findCharByName('March 7th')!,
-      findCharByName('Huohuo')!
-    ].filter(Boolean) as Character[],
-    
-    'B': [
-      findCharByName('Natasha')!,
-      findCharByName('Pela')!,
-      findCharByName('Gallagher')!,
-      findCharByName('Guinaifen')!
-    ].filter(Boolean) as Character[],
-    
-    'C': [
-      findCharByName('Asta')!,
-      findCharByName('Sampo')!,
+      findCharByName('The Herta')!,
+      findCharByName('Jade')!,
+      findCharByName('Herta')!,
+      findCharByName('Argenti')!,
+      findCharByName('Jing Yuan')!,
+      findCharByName('Tribbie')!,
+      findCharByName('Lingsha')!,
       findCharByName('Robin')!
     ].filter(Boolean) as Character[],
     
-    'D': [
-      findCharByName('Herta')!,
+    'S': [
+      findCharByName('Rappa')!,
+      findCharByName('Jing Yuan')!,
+      findCharByName('Acheron')!,
+      findCharByName('Aglaea')!,
+      findCharByName('Yunli')!,
+      findCharByName('Black Swan')!,
+      findCharByName('Kafka')!,
+      findCharByName('Serval')!,
+      findCharByName('Himeko')!,
+      findCharByName('Sunday')!,
+      findCharByName('Aventurine')!,
+      findCharByName('Ruan Mei')!,
+      findCharByName('Huohuo')!,
+      findCharByName('Fugue')!,
+      findCharByName('Gallagher')!,
+      findCharByName('Jiaoqiu')!,
+      findCharByName('Trailblazer • Remembrance')!
+    ].filter(Boolean) as Character[],
+    
+    'A': [
+      findCharByName('Mydei')!,
+      findCharByName('Blade')!,
+      findCharByName('Firefly')!,
+      findCharByName('Feixiao')!,
+      findCharByName('Seele')!,
+      findCharByName('Clara')!,
+      findCharByName('Asta')!,
+      findCharByName('Gepard')!,
+      findCharByName('Hanya')!,
+      findCharByName('Lynx')!
+    ].filter(Boolean) as Character[],
+    
+    'B': [
+      findCharByName('Dan Heng - จ้าวยลจันทรา')!,
+      findCharByName('Jingliu')!,
+      findCharByName('Qingque')!,
+      findCharByName('Sampo')!,
+      findCharByName('Dr. Ratio')!,
+      findCharByName('Topaz & Numby')!,
+      findCharByName('March 7th The Hunt')!,
+      findCharByName('Xueyi')!,
+      findCharByName('Sparkle')!,
+      findCharByName('Fu Xuan')!,
+      findCharByName('Tingyun')!,
+      findCharByName('Luocha')!,
+      findCharByName('Bronya')!,
+      findCharByName('Bailu')!,
+      findCharByName('Pela')!,
+      findCharByName('Trailblazer • Harmony')!
+    ].filter(Boolean) as Character[],
+    
+    'C': [
+      findCharByName('Boothill')!,
+      findCharByName('Yanqing')!,
+      findCharByName('Dan Heng')!,
       findCharByName('Luka')!,
-      findCharByName('Serval')!
+      findCharByName('Arlan')!,
+      findCharByName('Hook')!,
+      findCharByName('Misha')!,
+      findCharByName('Trailblazer')!,
+      findCharByName('Sushang')!,
+      findCharByName('Moze')!
+    ].filter(Boolean) as Character[],
+    
+    'D': [
+      findCharByName('Yukong')!,
+      findCharByName('Silver Wolf')!,
+      findCharByName('Welt')!,
+      findCharByName('Guinaifen')!,
+      findCharByName('March 7th')!,
+      findCharByName('Trailblazer')!,
+      findCharByName('Natasha')!
     ].filter(Boolean) as Character[]
   };
   
   // Apocalyptic Shadow Tier List 
   const shadowMode: Record<TierType, Character[]> = {
     'SS': [
-      findCharByName('Silver Wolf')!,
-      findCharByName('Kafka')!,
-      findCharByName('Dr. Ratio')!,
-      findCharByName('Acheron')!
+      findCharByName('The Herta')!,
+      findCharByName('March 7th The Hunt')!,
+      findCharByName('Acheron')!,
+      findCharByName('Tribbie')!,
+      findCharByName('Aventurine')!,
+      findCharByName('Sunday')!,
+      findCharByName('Huohuo')!,
+      findCharByName('Trailblazer • Harmony')!,
+      findCharByName('Gallagher')!,
+      findCharByName('Fugue')!,
+      findCharByName('Trailblazer • Remembrance')!,
+      findCharByName('Firefly')!,
+      findCharByName('Boothill')!,
+      findCharByName('Feixiao')!,
+      findCharByName('Rappa')!,
+      findCharByName('Ruan Mei')!,
+      findCharByName('Lingsha')!,
+      findCharByName('Robin')!
     ].filter(Boolean) as Character[],
     
     'S': [
-      findCharByName('Seele')!,
-      findCharByName('Black Swan')!,
       findCharByName('Argenti')!,
-      findCharByName('Blade')!,
-      findCharByName('Boothill')!
+      findCharByName('Jing Yuan')!,
+      findCharByName('Jade')!,
+      findCharByName('Yunli')!,
+      findCharByName('Dr. Ratio')!,
+      findCharByName('Aglaea')!,
+      findCharByName('Himeko')!,
+      findCharByName('Sparkle')!,
+      findCharByName('Fu Xuan')!,
+      findCharByName('Tingyun')!,
+      findCharByName('Luocha')!,
+      findCharByName('Bronya')!
     ].filter(Boolean) as Character[],
     
     'A': [
-      findCharByName('Dan Heng')!,
-      findCharByName('Clara')!,
-      findCharByName('Jingliu')!,
-      findCharByName('Topaz')!,
-      findCharByName('Yanqing')!
+      findCharByName('Dan Heng - จ้าวยลจันทรา')!,
+      findCharByName('Topaz & Numby')!,
+      findCharByName('Moze')!,
+      findCharByName('Serval')!,
+      findCharByName('Herta')!,
+      findCharByName('Silver Wolf')!,
+      findCharByName('Bailu')!,
+      findCharByName('Pela')!,
+      findCharByName('Gepard')!,
+      findCharByName('Jiaoqiu')!
     ].filter(Boolean) as Character[],
     
     'B': [
+      findCharByName('Jingliu')!,
+      findCharByName('Seele')!,
+      findCharByName('Xueyi')!,
       findCharByName('Sushang')!,
-      findCharByName('Guinaifen')!,
-      findCharByName('Pela')!,
+      findCharByName('Luka')!,
+      findCharByName('Mydei')!,
+      findCharByName('Serval')!,
+      findCharByName('Herta')!,
+      findCharByName('Asta')!,
+      findCharByName('Hanya')!,
+      findCharByName('Yukong')!,
       findCharByName('Welt')!
     ].filter(Boolean) as Character[],
     
     'C': [
+      findCharByName('Clara')!,
+      findCharByName('Qingque')!,
+      findCharByName('Blade')!,
+      findCharByName('Kafka')!,
+      findCharByName('Black Swan')!,
+      findCharByName('Trailblazer')!,
       findCharByName('Arlan')!,
-      findCharByName('Luka')!,
-      findCharByName('Feixiao')!,
-      findCharByName('Hook')!
+      findCharByName('Dan Heng')!
     ].filter(Boolean) as Character[],
-    
+
     'D': [
-      findCharByName('Serval')!,
-      findCharByName('Herta')!,
-      findCharByName('Moze')!
+      findCharByName('Hook')!,
+      findCharByName('Yanqing')!,
+      findCharByName('Sampo')!,
+      findCharByName('Guinaifen')!,
+      findCharByName('Natasha')!,
+      findCharByName('March 7th')!,
+      findCharByName('Trailblazer')!,
+      findCharByName('Lynx')!
     ].filter(Boolean) as Character[]
   };
   
