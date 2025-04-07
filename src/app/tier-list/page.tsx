@@ -456,8 +456,8 @@ export default function TierListPage() {
           <div className="items-center flex flex-wrap">
             <div className="w-full px-4 ml-auto mr-auto text-center">
               <div className="pt-6">
-                <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6">TIER LIST PATCH 3.1</h1>
-                <p className="mt-4 text-xl text-blue-200 max-w-2xl mx-auto">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 sm:mb-6">TIER LIST PATCH 3.1</h1>
+                <p className="mt-4 text-sm sm:text-lg md:text-xl text-blue-200 max-w-2xl mx-auto">
                   การจัดอันดับตัวละครใน HONKAI STAR RAIL ตามความแข็งแกร่งและประสิทธิภาพ
                 </p>
               </div>
@@ -478,7 +478,7 @@ export default function TierListPage() {
                   <button
                     key={mode}
                     onClick={() => setSelectedMode(mode)}
-                    className={`px-4 py-2 rounded-lg text-sm ${
+                    className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm ${
                       selectedMode === mode 
                         ? 'bg-purple-600 text-white font-semibold shadow-lg shadow-purple-500/20' 
                         : 'bg-black/60 border border-white/20 text-gray-300 hover:bg-purple-500/20 hover:border-purple-400/50'
@@ -590,15 +590,15 @@ export default function TierListPage() {
           {(Object.keys(tierConfig) as TierType[]).map((tier) => (
             <div key={tier} className="mb-4">
               <div className="flex rounded-lg overflow-hidden border border-white/10">
-                <div className={`w-20 h-auto flex items-center justify-center bg-gradient-to-r ${tierConfig[tier].color} py-4`}>
-                  <span className="text-4xl font-bold text-white">{tier}</span>
+                <div className={`w-12 sm:w-16 md:w-20 h-auto flex items-center justify-center bg-gradient-to-r ${tierConfig[tier].color} py-4`}>
+                  <span className="text-2xl md:text-4xl font-bold text-white">{tier}</span>
                 </div>
                 
-                <div className={`flex-1 flex flex-wrap gap-3 p-4 min-h-24 ${tierConfig[tier].bgColor}`}>
+                <div className={`flex-1 flex flex-wrap gap-2 sm:gap-3 p-3 md:p-4 min-h-24 ${tierConfig[tier].bgColor}`}>
                   {getFilteredTierList()[tier].map((character) => (
                     <div
                       key={character.id}
-                      className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 ${getElementColor(character.element)} hover:border-white/80 transition-all hover:scale-105 ${getElementGlow(character.element)}`}
+                      className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 ${getElementColor(character.element)} hover:border-white/80 transition-all hover:scale-105 ${getElementGlow(character.element)}`}
                     >
                       <Image
                         src={character.imageUrl}

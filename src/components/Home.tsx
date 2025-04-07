@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { User, UsersRound, ChevronLeft, ChevronRight, SquareUser } from "lucide-react";
 
 const carouselData = [
@@ -86,21 +87,21 @@ const BannerCarousel = () => {
           </div>
           <div className="absolute inset-0 bg-blue-900/30"></div>
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
-            <h1 className="text-5xl font-bold mb-4 text-shadow-lg animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-4 text-shadow-lg animate-fade-in">
               {slide.title}
             </h1>
-            <p className="max-w-2xl mx-auto text-xl mb-6 text-shadow animate-fade-in-delay">
+            <p className="max-w-2xl mx-auto text-sm sm:text-lg md:text-xl mb-4 md:mb-6 text-shadow animate-fade-in-delay">
               {slide.description}
             </p>
-            <div className="flex space-x-4 animate-fade-in-delay2">
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
-                <User size={20} className="animate-pulse" /> Tier List
-              </button>
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
-                <UsersRound size={20} /> ตัวละคร
-              </button>
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
-                <SquareUser size={20} className="animate-pulse" /> Light Cone
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 animate-fade-in-delay2">
+              <Link href="/tier-list" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
+                <User size={18} className="animate-pulse" /> Tier List
+              </Link>
+              <Link href="/characters" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
+                <UsersRound size={18} /> ตัวละคร
+              </Link>
+              <button disabled className="opacity-50 cursor-not-allowed bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
+                <SquareUser size={18} /> Light Cone
               </button>
             </div>
           </div>

@@ -151,8 +151,8 @@ export default function CharactersPage() {
           <div className="items-center flex flex-wrap">
             <div className="w-full px-4 ml-auto mr-auto text-center">
               <div className="pt-6">
-                <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6">ตัวละคร HONKAI STAR RAIL</h1>
-                <p className="mt-4 text-xl text-blue-200 max-w-2xl mx-auto">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 sm:mb-6">ตัวละคร HONKAI STAR RAIL</h1>
+                <p className="mt-4 text-sm sm:text-lg md:text-xl text-blue-200 max-w-2xl mx-auto">
                   ค้นหาและเรียนรู้เกี่ยวกับตัวละครทั้งหมดในจักรวาล Honkai Star Rail
                 </p>
                 <div className="mt-8 animate-bounce">
@@ -307,7 +307,7 @@ export default function CharactersPage() {
         </div>
         
         {/* Character Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
           {filteredCharacters.map(character => (
             <div 
               key={character.id} 

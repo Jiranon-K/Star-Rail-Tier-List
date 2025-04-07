@@ -8,6 +8,27 @@ body {
   font-family: "Prompt", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
 
 .glow-fire {
   box-shadow: 0 0 20px 2px rgba(255, 100, 50, 0.3);
