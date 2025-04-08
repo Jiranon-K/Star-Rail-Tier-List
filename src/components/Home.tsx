@@ -100,9 +100,9 @@ const BannerCarousel = () => {
               <Link href="/characters" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
                 <UsersRound size={18} /> ตัวละคร
               </Link>
-              <button disabled className="opacity-50 cursor-not-allowed bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
+              <Link href="/light-cones" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-sm sm:text-base font-medium shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-indigo-400/30">
                 <SquareUser size={18} /> Light Cone
-              </button>
+              </Link>
             </div>
           </div>
         </div>

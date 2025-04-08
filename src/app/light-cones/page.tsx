@@ -3,63 +3,50 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import {
-  characters,
-  getAllElements,
+  lightCones,
   getAllPaths,
-  type Character,
-  type CharacterElement,
-  type CharacterPath,
-} from "@/data/characters";
+  type LightCone,
+  type LightConePath,
+} from "@/data/lightCones";
 import { Search } from "lucide-react";
 import Image from "next/image";
 
-export default function CharactersPage() {
+export default function LightConesPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredCharacters, setFilteredCharacters] =
-    useState<Character[]>(characters);
+  const [filteredLightCones, setFilteredLightCones] =
+    useState<LightCone[]>(lightCones);
   const [selectedRarity, setSelectedRarity] = useState<number | null>(null);
-  const [selectedPath, setSelectedPath] = useState<CharacterPath | null>(null);
-  const [selectedElement, setSelectedElement] =
-    useState<CharacterElement | null>(null);
+  const [selectedPath, setSelectedPath] = useState<LightConePath | null>(null);
   const [showPathDropdown, setShowPathDropdown] = useState(false);
-  const [showElementDropdown, setShowElementDropdown] = useState(false);
 
   const paths = getAllPaths();
-  const elements = getAllElements();
 
   useEffect(() => {
-    let result = characters;
+    let result = lightCones;
 
     if (searchQuery) {
-      result = result.filter((character) =>
-        character.name.toLowerCase().includes(searchQuery.toLowerCase())
+      result = result.filter((lightCone) =>
+        lightCone.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
     if (selectedRarity) {
       result = result.filter(
-        (character) => character.rarity === selectedRarity
+        (lightCone) => lightCone.rarity === selectedRarity
       );
     }
 
     if (selectedPath) {
-      result = result.filter((character) => character.path === selectedPath);
+      result = result.filter((lightCone) => lightCone.path === selectedPath);
     }
 
-    if (selectedElement) {
-      result = result.filter(
-        (character) => character.element === selectedElement
-      );
-    }
-
-    setFilteredCharacters(result);
-  }, [searchQuery, selectedRarity, selectedPath, selectedElement]);
+    setFilteredLightCones(result);
+  }, [searchQuery, selectedRarity, selectedPath]);
 
   const clearFilters = () => {
     setSearchQuery("");
     setSelectedRarity(null);
     setSelectedPath(null);
-    setSelectedElement(null);
   };
 
   useEffect(() => {
@@ -70,100 +57,82 @@ export default function CharactersPage() {
       ) {
         setShowPathDropdown(false);
       }
-      if (
-        showElementDropdown &&
-        !(event.target as Element).closest(".element-dropdown-container")
-      ) {
-        setShowElementDropdown(false);
-      }
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [showPathDropdown, showElementDropdown]);
+  }, [showPathDropdown]);
 
-  // ฟังก์ชันสำหรับเลือกสีตามธาตุ
-  const getElementColor = (element: CharacterElement) => {
-    switch (element) {
-      case "กายภาพ":
-        return "from-gray-400/70 to-gray-600/70";
-      case "ไฟ":
-        return "from-red-400/70 to-orange-600/70";
-      case "น้ำแข็ง":
-        return "from-blue-300/70 to-cyan-500/70";
-      case "สายฟ้า":
-        return "from-purple-400/70 to-indigo-600/70";
-      case "ลม":
-        return "from-green-300/70 to-teal-500/70";
-      case "ควอนตัม":
-        return "from-blue-500/70 to-indigo-700/70";
-      case "จินตภาพ":
+  // ฟังก์ชันสำหรับเลือกสีตามเส้นทาง
+  const getPathColor = (path: LightConePath) => {
+    switch (path) {
+      case "ทำลายล้าง":
+        return "from-red-500/70 to-orange-700/70";
+      case "ล่าสังหาร":
+        return "from-green-500/70 to-green-700/70";
+      case "ปัญญา":
+        return "from-blue-500/70 to-purple-700/70";
+      case "ประสาน":
+        return "from-yellow-400/70 to-amber-600/70";
+      case "ลบล้าง":
         return "from-pink-400/70 to-purple-600/70";
+      case "อนุรักษ์":
+        return "from-teal-400/70 to-cyan-600/70";
+      case "เฟื่องฟู":
+        return "from-lime-400/70 to-green-600/70";
+      case "ความทรงจำ":
+        return "from-blue-300/70 to-blue-500/70";
       default:
         return "from-gray-400/70 to-gray-600/70";
     }
   };
 
-  const getElementTextColor = (element: CharacterElement) => {
-    switch (element) {
-      case "กายภาพ":
-        return "text-white";
-      case "ไฟ":
-        return "text-white";
-      case "น้ำแข็ง":
-        return "text-white";
-      case "สายฟ้า":
-        return "text-white";
-      case "ลม":
-        return "text-white";
-      case "ควอนตัม":
-        return "text-white";
-      case "จินตภาพ":
-        return "text-white";
-      default:
-        return "text-white";
-    }
-  };
+  // Text color for light cone text is always white
+  const pathTextColor = "text-white";
 
-  const getElementTextShadow = (element: CharacterElement) => {
-    switch (element) {
-      case "กายภาพ":
-        return "text-shadow-physical";
-      case "ไฟ":
+  const getPathTextShadow = (path: LightConePath) => {
+    switch (path) {
+      case "ทำลายล้าง":
         return "text-shadow-fire";
-      case "น้ำแข็ง":
-        return "text-shadow-ice";
-      case "สายฟ้า":
-        return "text-shadow-lightning";
-      case "ลม":
+      case "ล่าสังหาร":
         return "text-shadow-wind";
-      case "ควอนตัม":
+      case "ปัญญา":
         return "text-shadow-quantum";
-      case "จินตภาพ":
+      case "ประสาน":
+        return "text-shadow-lightning";
+      case "ลบล้าง":
         return "text-shadow-imaginary";
+      case "อนุรักษ์":
+        return "text-shadow-ice";
+      case "เฟื่องฟู":
+        return "text-shadow-physical";
+      case "ความทรงจำ":
+        return "text-shadow-ice";
       default:
         return "text-shadow-physical";
     }
   };
 
-  const getElementGlow = (element: CharacterElement) => {
-    switch (element) {
-      case "กายภาพ":
-        return "glow-physical";
-      case "ไฟ":
+  const getPathGlow = (path: LightConePath) => {
+    switch (path) {
+      case "ทำลายล้าง":
         return "glow-fire";
-      case "น้ำแข็ง":
-        return "glow-ice";
-      case "สายฟ้า":
-        return "glow-lightning";
-      case "ลม":
+      case "ล่าสังหาร":
         return "glow-wind";
-      case "ควอนตัม":
+      case "ปัญญา":
         return "glow-quantum";
-      case "จินตภาพ":
+      case "ประสาน":
+        return "glow-lightning";
+      case "ลบล้าง":
         return "glow-imaginary";
+      case "อนุรักษ์":
+        return "glow-ice";
+      case "เฟื่องฟู":
+        return "glow-physical";
+      case "ความทรงจำ":
+        return "glow-ice";
       default:
         return "";
     }
@@ -178,7 +147,7 @@ export default function CharactersPage() {
         <div
           className="absolute top-0 w-full h-full bg-center bg-cover"
           style={{
-            backgroundImage: "url('/honkai-banner4.png')",
+            backgroundImage: "url('/honkai-banner6.jpg')",
             filter: "blur(8px)",
             backgroundColor: "#151934",
           }}
@@ -191,11 +160,11 @@ export default function CharactersPage() {
             <div className="w-full px-4 ml-auto mr-auto text-center">
               <div className="pt-6">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4 sm:mb-6">
-                  ตัวละคร HONKAI STAR RAIL
+                  LIGHT CONES
                 </h1>
                 <p className="mt-4 text-sm sm:text-lg md:text-xl text-blue-200 max-w-2xl mx-auto">
-                  ค้นหาและเรียนรู้เกี่ยวกับตัวละครทั้งหมดในจักรวาล Honkai Star
-                  Rail
+                  ค้นหาและเรียนรู้เกี่ยวกับ Light Cone ทั้งหมดในจักรวาล Honkai
+                  Star Rail
                 </p>
                 <div className="mt-8 animate-bounce">
                   <div className="w-10 h-10 mx-auto border-2 border-blue-400 rounded-full flex items-center justify-center">
@@ -229,7 +198,7 @@ export default function CharactersPage() {
             <div className="relative w-full md:w-1/3">
               <input
                 type="text"
-                placeholder="ค้นหาตัวละคร..."
+                placeholder="ค้นหา Light Cone..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full py-3 pl-10 pr-4 rounded-full bg-black/60 border border-blue-500/30 focus:outline-none focus:ring-2 focus:border-blue-500/50 focus:ring-blue-500/50 text-white"
@@ -245,12 +214,24 @@ export default function CharactersPage() {
               <div className="flex gap-2">
                 <button
                   onClick={() =>
+                    setSelectedRarity(selectedRarity === 3 ? null : 3)
+                  }
+                  className={`px-6 py-2 rounded-full border transition-all ${
+                    selectedRarity === 3
+                      ? "bg-blue-600/40 border-blue-500 text-white shadow-lg shadow-blue-500/20 font-bold"
+                      : "bg-black/60 border-white/20 text-gray-300 hover:border-blue-400/50"
+                  }`}
+                >
+                  3★
+                </button>
+                <button
+                  onClick={() =>
                     setSelectedRarity(selectedRarity === 4 ? null : 4)
                   }
                   className={`px-6 py-2 rounded-full border transition-all ${
                     selectedRarity === 4
-                      ? "bg-blue-600/40 border-blue-500 text-white shadow-lg shadow-blue-500/20 font-bold"
-                      : "bg-black/60 border-white/20 text-gray-300 hover:border-blue-400/50"
+                      ? "bg-purple-600/40 border-purple-500 text-white shadow-lg shadow-purple-500/20 font-bold"
+                      : "bg-black/60 border-white/20 text-gray-300 hover:border-purple-400/50"
                   }`}
                 >
                   4★
@@ -269,12 +250,11 @@ export default function CharactersPage() {
                 </button>
               </div>
 
-              {/* Path Filter  */}
+              {/* Path Filter */}
               <div className="relative path-dropdown-container z-[150]">
                 <button
                   onClick={() => {
                     setShowPathDropdown(!showPathDropdown);
-                    setShowElementDropdown(false);
                   }}
                   className={`px-6 py-2 rounded-full bg-black/60 border ${
                     selectedPath
@@ -334,71 +314,6 @@ export default function CharactersPage() {
                 )}
               </div>
 
-              {/* Element Filter  */}
-              <div className="relative element-dropdown-container z-[150]">
-                <button
-                  onClick={() => {
-                    setShowElementDropdown(!showElementDropdown);
-                    setShowPathDropdown(false);
-                  }}
-                  className={`px-6 py-2 rounded-full bg-black/60 border ${
-                    selectedElement
-                      ? "border-cyan-500/80 text-cyan-300"
-                      : "border-white/20 text-gray-300"
-                  } focus:outline-none hover:border-cyan-400/50 transition-all flex items-center gap-2`}
-                >
-                  <span>{selectedElement || "ธาตุทั้งหมด"}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-4 w-4 transition-transform ${
-                      showElementDropdown ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {showElementDropdown && (
-                  <div className="absolute bottom-full mb-2 w-48 rounded-md shadow-lg bg-black/90 backdrop-blur-xl ring-1 ring-black ring-opacity-5 z-[200] border border-cyan-500/30">
-                    <div className="py-1">
-                      <button
-                        onClick={() => {
-                          setSelectedElement(null);
-                          setShowElementDropdown(false);
-                        }}
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-cyan-500/20"
-                      >
-                        ธาตุทั้งหมด
-                      </button>
-                      {elements.map((element) => (
-                        <button
-                          key={element}
-                          onClick={() => {
-                            setSelectedElement(element);
-                            setShowElementDropdown(false);
-                          }}
-                          className={`block w-full text-left px-4 py-2 text-sm ${
-                            selectedElement === element
-                              ? "bg-cyan-500/30 text-white"
-                              : "text-gray-200 hover:bg-cyan-500/20"
-                          }`}
-                        >
-                          {element}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
               {/* Clear Filters */}
               <button
                 onClick={clearFilters}
@@ -411,29 +326,27 @@ export default function CharactersPage() {
         </div>
       </div>
 
-      {/* Character Section */}
+      {/* Light Cone Section */}
       <section className="container mx-auto px-4 py-8 relative z-[90]">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-xl text-blue-300 font-medium px-4 py-2 backdrop-blur-sm bg-black/20 rounded-full border border-blue-500/10">
-            พบ {filteredCharacters.length} ตัวละคร
-            {selectedRarity || selectedPath || selectedElement || searchQuery
-              ? " (กรอง)"
-              : ""}
+            พบ {filteredLightCones.length} Light Cones
+            {selectedRarity || selectedPath || searchQuery ? " (กรอง)" : ""}
           </h2>
         </div>
 
-        {/* Character Grid */}
+        {/* Light Cone Grid */}
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
-          {filteredCharacters.map((character) => (
+          {filteredLightCones.map((lightCone) => (
             <div
-              key={character.id}
-              className={`group relative overflow-hidden rounded-xl ${getElementGlow(
-                character.element
+              key={lightCone.id}
+              className={`group relative overflow-hidden rounded-xl ${getPathGlow(
+                lightCone.path
               )} hover-card-effect backdrop-blur-sm bg-black/10 border border-white/5`}
             >
               {/* Rarity Stars */}
               <div className="absolute top-2 left-0 right-0 z-10 flex justify-center">
-                {Array.from({ length: character.rarity }).map((_, index) => (
+                {Array.from({ length: lightCone.rarity }).map((_, index) => (
                   <svg
                     key={index}
                     className="w-4 h-4 text-yellow-400 fill-current"
@@ -444,42 +357,42 @@ export default function CharactersPage() {
                 ))}
               </div>
 
-              {/* Character Image  */}
-              <div className="relative h-60 w-full overflow-hidden">
+              {/* Light Cone Image */}
+              <div className="relative h-60 w-full overflow-hidden bg-gradient-to-b from-transparent via-transparent to-black/50">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 z-10"></div>
-                <Image
-                  src={character.imageUrl}
-                  alt={character.name}
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700"
-                />
+                <div className="h-full w-full flex items-center justify-center">
+                  <div className="w-3/4 h-3/4 relative">
+                    <Image
+                      src={lightCone.imageUrl}
+                      alt={lightCone.name}
+                      width={300}
+                      height={400}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
               </div>
 
-              {/* Character Info */}
+              {/* Light Cone Info */}
               <div className="absolute bottom-0 inset-x-0 z-20">
                 <div
-                  className={`px-3 py-2 bg-gradient-to-r ${getElementColor(
-                    character.element
+                  className={`px-3 py-2 bg-gradient-to-r ${getPathColor(
+                    lightCone.path
                   )} backdrop-blur-md border-t border-white/20`}
                 >
                   <h3
-                    className={`${getElementTextColor(
-                      character.element
-                    )} ${getElementTextShadow(
-                      character.element
+                    className={`${pathTextColor} ${getPathTextShadow(
+                      lightCone.path
                     )} font-bold text-center text-lg truncate`}
                   >
-                    {character.name}
+                    {lightCone.name}
                   </h3>
                 </div>
 
+                {/* Path tooltip on hover */}
                 <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 -top-10 inset-x-0 flex justify-center gap-2 text-xs">
                   <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20">
-                    {character.element}
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20">
-                    {character.path}
+                    {lightCone.path}
                   </span>
                 </div>
               </div>
@@ -488,9 +401,9 @@ export default function CharactersPage() {
         </div>
 
         {/* Empty State */}
-        {filteredCharacters.length === 0 && (
+        {filteredLightCones.length === 0 && (
           <div className="text-center py-20 backdrop-blur-lg bg-black/20 rounded-xl border border-white/10">
-            <p className="text-2xl text-gray-300 mb-4">ไม่พบตัวละคร</p>
+            <p className="text-2xl text-gray-300 mb-4">ไม่พบ Light Cone</p>
             <p className="text-gray-400 mb-6">ลองเปลี่ยนตัวกรองหรือคำค้นหา</p>
             <button
               onClick={clearFilters}

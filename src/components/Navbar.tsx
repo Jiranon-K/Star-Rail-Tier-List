@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     { icon: <Home size={20} />, label: "หน้าหลัก", href: "/" },
     { icon: <User size={20} />, label: "ตัวละคร", href: "/characters" }, 
     { icon: <Star size={20} />, label: "Tier List", href: "/tier-list" },
-    // { icon: <Rocket size={20} />, label: "Light Cone", href: "#" },
+    { icon: <Rocket size={20} />, label: "Light Cone", href: "/light-cones" },
   ];
 
   return (
